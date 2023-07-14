@@ -1,0 +1,57 @@
+metadata:
+  description: >-
+    Sample community config
+user:
+  RUN_ENVIR: community
+  MACHINE: cheyenne
+  ACCOUNT: ualb0039
+platform:
+  MODEL: FV3_GFS_v16_AEW_25km
+  MET_INSTALL_DIR: ""
+  METPLUS_PATH: ""
+  CCPA_OBS_DIR: ""
+  MRMS_OBS_DIR: ""
+  NDAS_OBS_DIR: ""
+workflow:
+  EXPT_SUBDIR: AEW_dux1_swei_cbs
+  CCPP_PHYS_SUITE: FV3_GFS_v16
+  DATE_FIRST_CYCL: '2020072400'
+  DATE_LAST_CYCL: '2020072400'
+  FCST_LEN_HRS: 144
+  PREEXISTING_DIR_METHOD: rename
+  VERBOSE: true
+  COMPILER: intel
+  USE_CRON_TO_RELAUNCH: true
+  CRON_RELAUNCH_INTVL_MNTS: 3
+workflow_switches:
+  RUN_TASK_MAKE_GRID: true
+  RUN_TASK_MAKE_OROG: true
+  RUN_TASK_MAKE_SFC_CLIMO: true
+  RUN_TASK_GET_OBS_CCPA: false
+  RUN_TASK_GET_OBS_MRMS: false
+  RUN_TASK_GET_OBS_NDAS: false
+  RUN_TASK_VX_GRIDSTAT: false
+  RUN_TASK_VX_POINTSTAT: false
+  RUN_TASK_VX_ENSGRID: false
+  RUN_TASK_VX_ENSPOINT: false
+task_get_extrn_ics:
+  USE_USER_STAGED_EXTRN_FILES: true
+  EXTRN_MDL_SOURCE_BASEDIR_ICS: "/glade/scratch/cwbschuler/ufs-srweather-app/input_model_data/FV3GFS/grib2/2020072400"
+  FV3GFS_FILE_FMT_ICS: grib2
+  EXTRN_MDL_NAME_ICS: FV3GFS
+  EXTRN_MDL_DATA_STORES: disk
+task_get_extrn_lbcs:
+  USE_USER_STAGED_EXTRN_FILES: true
+  EXTRN_MDL_SOURCE_BASEDIR_LBCS: "/glade/scratch/cwbschuler/ufs-srweather-app/input_model_data/FV3GFS/grib2/2020072400"
+  EXTRN_MDL_NAME_LBCS: FV3GFS
+  FV3GFS_FILE_FMT_LBCS: grib2
+  LBC_SPEC_INTVL_HRS: 6
+  EXTRN_MDL_DATA_STORES: disk
+task_run_fcst:
+  WTIME_RUN_FCST: 04:30:00
+  QUILTING: true
+  PREDEF_GRID_NAME: AEW_GRID_LATLON_25km
+  USE_MERRA_CLIMO: true
+global:
+  DO_ENSEMBLE: false
+  NUM_ENS_MEMBERS: 2

@@ -1,0 +1,4 @@
+*/3 * * * * cd /glade/scratch/cwbschuler/expt_dirs/test_cbs_cxn_576_nthr_1 && ./launch_FV3LAM_wflow.sh called_from_cron="TRUE" >> ./log.launch_FV3LAM_wflow 2>&1
+*/3 * * * * cd /glade/scratch/cwbschuler/expt_dirs/test_cbs_cxn_dflt_nthr_4_layoutmod && ./launch_FV3LAM_wflow.sh called_from_cron="TRUE" >> ./log.launch_FV3LAM_wflow 2>&1
+*/3 * * * * cd /glade/scratch/cwbschuler/expt_dirs/test_cbs_cxn_dflt_nthr_1_layout_x8y2 && ./launch_FV3LAM_wflow.sh called_from_cron="TRUE" >> ./log.launch_FV3LAM_wflow 2>&1
+*/3 * * * * cd /glade/scratch/cwbschuler/expt_dirs/test_cbs_cxn_dflt_nthr_1_layout_x7y3 && ./launch_FV3LAM_wflow.sh called_from_cron="TRUE" >> ./log.launch_FV3LAM_wflow 2>&1
